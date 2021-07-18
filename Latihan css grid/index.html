@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="hero">
+                <h2>Hitomi</h2>
+            </div>
+            <div class="features feature-1"></div>
+            <div class="features feature-2"></div>
+        </header>
+
+        <nav class="menu">
+            <div class="menu-toggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="main">
+                <h1>AzkiFairuz</h1>
+            </div>
+        <ul class="menu-list">
+            <l1><a href="">Home</a></l1>
+            <l1><a href="">Product</a></l1>
+            <l1><a href="">About</a></l1>
+            <l1><a href="">Gallery</a></l1>
+        </ul>
+        </nav>
+    </div>  
+    <script>const menuToggle = document.querySelector( ".menu-toggle input");
+        const nav = document.querySelector("nav ul");
+        
+        menuToggle.addEventListener("click", function() {
+            nav.classList.toggle("slide");
+        });</script>  
+</body>
+</html>

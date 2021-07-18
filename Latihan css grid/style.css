@@ -1,0 +1,241 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+img{
+    width: 100%;
+}
+
+body {
+    margin: 50px;
+    font-size: 18px;
+    font-family: 'oswald',Arial, Helvetica, sans-serif;
+}
+
+.container{
+    display: grid;
+    gap: 1px;
+}
+
+/* header */
+
+.header{
+    display: grid;
+    /* grid-template-columns: repeat (3, minmax(100px 200px)); */
+    grid-template-areas: 
+            'hero hero feature-1'
+            'hero hero feature-2';
+    gap: 4px;
+}
+
+.hero{
+    grid-area: hero;
+    background-image: url(img/hero.jpg);
+    min-height:300px;
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+}
+
+.hero h2{
+    display: none;
+}
+
+.features{
+    background-color: black;
+    display: grid;
+    place-content: center;
+
+}
+
+.feature-1{
+    grid-area: feature-1;
+    background-image: url(img/hitomi1.jpg);
+    background-size: cover;
+}
+
+.feature-2{
+    grid-area: feature-2;
+    background-image: url(img/hitomi2.jpg);
+    background-size: cover;
+}
+
+/* nav */
+
+.menu{
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items:center ;
+}
+
+.menu .main{
+    color: black;
+    display: block;
+    font-size: 1em;
+}
+
+
+.menu ul{
+    list-style: none; 
+    display: grid;
+    grid-template-columns: repeat (auto-fit, minmax(100px 1fr));
+    grid-auto-flow: column;
+    gap: 5px;
+}
+
+.menu a{
+    display: block;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+/* humberger menu*/
+
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+
+.menu-toggle input{
+    position: absolute;
+    height: 20px;
+    width: 28px;
+    opacity: 0;
+    z-index: 2;
+    
+}
+
+.menu-toggle span{
+    display: block;
+    background-color: black;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    transition: all .5s;
+}
+
+
+/* humberger animation */
+.menu-toggle span:nth-child(2){
+    transform-origin:0 0 ;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin:0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    transform: rotate(45deg) translate(-1px,-1px) ;
+    background-color: white;
+}
+
+.menu-toggle input:checked ~ span:nth-child(4){
+    transform: rotate(-45deg) translate(-1px,0) ;
+    background-color: white;
+}
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+/* responsive breakpoint */
+
+
+/* full hd */
+/* @media screen and (max-width: 1024px){
+    .menu{
+        order: inherit;
+        grid-template-columns: 1fr;
+    }    
+}
+
+.menu .main{
+    display: none;
+}
+
+.hero h2{
+    display: block;
+    font-size: 2em;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* .hero{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+} */ 
+
+/* for tablet*/
+
+@media screen and (max-width: 768px){
+    .menu-toggle{
+        display: flex;
+    }
+
+    .menu ul{
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        right: 0;
+        top: 0;
+        background-color:black;
+        justify-content: space-evenly;
+        height: 100vh;
+        transform: translateY(-100%);
+        transition: all 1s;
+        opacity: 0;
+        width: 100%;
+        z-index: 1;
+        
+    }
+    .menu ul.slide{
+        transform: translateY(0);
+        opacity: 1;
+    }
+        .menu{
+            justify-items: end;
+            grid-template-columns: 1fr;
+    }    
+
+
+.menu .main{
+    display: none;
+}
+
+.hero h2{
+    display: block;
+    font-size: 2em;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.feature{
+    background-position: center;
+}
+
+.header{
+    grid-template-areas: 'hero' 'feature-1' 'feature-2';
+}
+     
+}
+
+/* for mobile */
+
+@media screen and (max-width: 600px){
+
+}
